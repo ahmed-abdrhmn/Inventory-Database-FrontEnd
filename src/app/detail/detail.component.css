@@ -6,11 +6,17 @@ p {
     margin: 0px;
 } 
 
-li {
-    margin: 0.5em 0.5em;
+.example-card {
     display: inline-block;
-    background-color: lightpink;
-    border: 2px solid black;
-    border-radius: 1em;
-    padding: 0.6em;
+    margin: 0.5em;
+}
+
+.card-header {
+    background-color: gray;
+    color: white; /*text color*/
+}
+
+.card-content {
+    background-color: lightgrey; 
+    padding: 0.5em;
 }

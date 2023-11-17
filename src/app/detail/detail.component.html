@@ -1,39 +1,39 @@
 <h2>Title: {{title}}</h2>
-<ol *ngIf="items.length > 0; else elseBlock">
-        <li *ngFor="let i of items">
-            <p>DetailId: {{i.inventoryInDetailId}}</p>
-            <p>Header:</p>
-            <div> 
-                <p>HeaderId: {{i.inventoryInHeader.inventoryInHeaderId}}</p>
-                <p>Branch:</p>
-                <div>
-                    <p>BranchId: {{i.inventoryInHeader.branch.branchId}}</p>
-                    <p>Name: {{i.inventoryInHeader.branch.name}}</p>
-                </div>
-                <p>DocDate: {{i.inventoryInHeader.docDate}}</p>
-                <p>Reference: {{i.inventoryInHeader.reference}}</p>
-                <p>TotalValue: {{i.inventoryInHeader.totalValue}}<p>
-                <p>Remarks: {{i.inventoryInHeader.remarks}}</p>
-            </div>
-            <p>Serial: {{i.serial}}</p>
-            <p>Item:</p>
+<mat-card *ngFor="let i of items" class="example-card">
+    <mat-card-header class="card-header"><b>DetailId:</b> {{i.inventoryInDetailId}}</mat-card-header>
+    <mat-card-content class="card-content">
+        <p><b>Header:</b></p>
+        <div> 
+            <p><b>HeaderId:</b> {{i.inventoryInHeader.inventoryInHeaderId}}</p>
+            <p><b>Branch:</b></p>
             <div>
-                <p> ItemId: {{i.item.itemId}}</p>
-                <p> Name: {{i.item.name}}</p>
+                <p><b>BranchId:</b> {{i.inventoryInHeader.branch.branchId}}</p>
+                <p><b>Name:</b> {{i.inventoryInHeader.branch.name}}</p>
             </div>
-            <p>Package:</p>
-            <div>
-                <p> PackageId: {{i.package.packageId}}</p>
-                <p> Name: {{i.package.packageId}}</p>
-            </div>
-            <p>BatchNumber: {{i.batchNumber}}</p>
-            <p>SerialNumber: {{i.serialNumber}}</p>
-            <p>ExpireDate: {{i.expireDate}}</p>
-            <p>Quantity: {{i.quantity}}</p>
-            <p>ConsumerPrice: {{i.consumerPrice}}</p>
-            <p>TotalValue: {{i.totalValue}}</p>
-        </li>
-</ol>
+            <p><b>DocDate:</b> {{i.inventoryInHeader.docDate}}</p>
+            <p><b>Reference:</b> {{i.inventoryInHeader.reference}}</p>
+            <p><b>TotalValue:</b> {{i.inventoryInHeader.totalValue}}<p>
+            <p><b>Remarks:</b> {{i.inventoryInHeader.remarks}}</p>
+        </div>
+        <p><b>Serial:</b> {{i.serial}}</p>
+        <p><b>Item:</b></p>
+        <div>
+            <p> <b>ItemId:</b> {{i.item.itemId}}</p>
+            <p> <b>Name:</b> {{i.item.name}}</p>
+        </div>
+        <p><b>Package:</b></p>
+        <div>
+            <p> <b>PackageId:</b> {{i.package.packageId}}</p>
+            <p> <b>Name:</b> {{i.package.packageId}}</p>
+        </div>
+        <p><b>BatchNumber:</b> {{i.batchNumber}}</p>
+        <p><b>SerialNumber:</b> {{i.serialNumber}}</p>
+        <p><b>ExpireDate:</b> {{i.expireDate}}</p>
+        <p><b>Quantity:</b> {{i.quantity}}</p>
+        <p><b>ConsumerPrice:</b> {{i.consumerPrice}}</p>
+        <p><b>TotalValue:</b> {{i.totalValue}}</p>
+    </mat-card-content>
+</mat-card>
 <ng-template #elseBlock>
     <p>No items 😢</p>
 </ng-template>
