@@ -1,8 +1,15 @@
-app-detail {
-    white-space: nowrap;
+.scrolling-div {
+    margin-top: 6.5em;
 }
 
-.nav-title {
+/*Div that wraps the toolbar*/
+.whole-toolbar {
+    width: 100%;
     position: fixed;
+    top: 0px;
 }
 
+mat-toolbar {
+    height: 2em;
+}
+   

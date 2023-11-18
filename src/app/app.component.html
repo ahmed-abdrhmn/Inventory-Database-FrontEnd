@@ -1,1 +1,17 @@
-<app-detail></app-detail>
+<div style="overflow: hidden; height: 0px; width: 0px;">&nbsp;</div> <!--prevent margin collapsing, see here: https://stackoverflow.com/questions/1828804/how-do-i-uncollapse-a-margin/46496701#46496701-->
+<div class="scrolling-div"> <!--I guess I have to insert the div or else the horizontal scroll wont work-->
+    <app-detail></app-detail>
+</div>
+
+<div class="whole-toolbar">
+    <mat-toolbar color="primary">
+            <span>Inventory Management</span>
+    </mat-toolbar>
+    <mat-tab-group backgroundColor="accent">
+        <mat-tab label="Document Details"></mat-tab>
+        <mat-tab label="Document Headers"></mat-tab>
+        <mat-tab label="Branches"></mat-tab>
+        <mat-tab label="Packages"></mat-tab>
+        <mat-tab label="Items"></mat-tab>
+    </mat-tab-group>
+</div>
