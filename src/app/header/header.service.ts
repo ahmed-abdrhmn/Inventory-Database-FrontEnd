@@ -2,7 +2,7 @@ import { InventoryInHeader } from "../types/types";
 
 class HeaderService{
     async getList() : Promise<InventoryInHeader[]> {
-        let resp = await fetch('http://localhost:5230/api/inventory');
+        let resp = await fetch('http://localhost:5230/api/header');
         if (!(resp.status === 200)){
             return []
         }

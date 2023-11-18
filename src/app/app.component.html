@@ -1,9 +1,11 @@
 <div style="overflow: hidden; height: 0px; width: 0px;">&nbsp;</div> <!--prevent margin collapsing, see here: https://stackoverflow.com/questions/1828804/how-do-i-uncollapse-a-margin/46496701#46496701-->
 <div class="scrolling-div"> <!--I guess I have to insert the div or else the horizontal scroll wont work-->
-    <app-detail></app-detail>
+    <mat-tab-nav-panel #panel>
+        <router-outlet></router-outlet>
+    </mat-tab-nav-panel>
 </div>
 
-<div class="whole-toolbar">
+<!-- <div class="whole-toolbar">
     <mat-toolbar color="primary">
             <span>Inventory Management</span>
     </mat-toolbar>
@@ -14,4 +16,17 @@
         <mat-tab label="Packages"></mat-tab>
         <mat-tab label="Items"></mat-tab>
     </mat-tab-group>
+</div> -->
+
+<div class="whole-toolbar">
+    <mat-toolbar color="primary">
+            <span>Inventory Management</span>
+    </mat-toolbar>
+    <nav mat-tab-nav-bar backgroundColor="accent" [tabPanel]="panel">
+        <a mat-tab-link routerLink="/detail" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">Detail</a>
+        <a mat-tab-link routerLink="/header" routerLinkActive #rlb="routerLinkActive" [active]="rlb.isActive">Header</a>
+        <a mat-tab-link routerLink="/item" routerLinkActive #rlc="routerLinkActive" [active]="rlc.isActive">Item</a>
+        <a mat-tab-link routerLink="/package" routerLinkActive #rld="routerLinkActive" [active]="rld.isActive">Package</a>
+        <a mat-tab-link routerLink="/branch" routerLinkActive #rle="routerLinkActive" [active]="rle.isActive">Branch</a>
+    </nav>
 </div>
