@@ -12,5 +12,5 @@ import { DetailComponent } from './detail/detail.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Ahmed';
+  title = 'Inventory Documents';
 }
