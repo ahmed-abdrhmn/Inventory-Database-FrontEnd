@@ -12,7 +12,7 @@ import {
  } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-detail-del-dialog',
+  selector: 'app-branch-del-dialog',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose],
   templateUrl: './del-dialog.component.html',

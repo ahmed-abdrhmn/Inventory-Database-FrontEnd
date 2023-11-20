@@ -35,7 +35,7 @@ class ServerDetailService extends DetailService{
         };
     }
 
-    async addItem(item: any): Promise<any> {
+    async addItem(item: any): Promise<void> {
         let resp = await fetch('http://localhost:5230/api/inventory', {
             method: 'POST', 
             body: JSON.stringify(item),

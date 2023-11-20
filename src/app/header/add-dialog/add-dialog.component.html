@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Add Dialog</h1>
+<div mat-dialog-content>
+    <p>What is the information in the new document header?</p>
+    <mat-form-field>
+        <mat-label>Branch Id</mat-label>
+        <mat-select [(ngModel)]="data.form!.branchId">
+            <mat-option *ngFor="let i of data.lists.branchIds" [value]="i">
+                {{i}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Doc Date</mat-label>
+        <input matInput [(ngModel)]="data.form!.docDate" type="date" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Reference</mat-label>
+        <input matInput [(ngModel)]="data.form!.reference" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Remarks</mat-label>
+        <input matInput [(ngModel)]="data.form!.remarks" required>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">NO</button>
+    <button mat-button [mat-dialog-close]="data">YES</button>
+</div>

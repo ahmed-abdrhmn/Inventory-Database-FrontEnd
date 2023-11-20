@@ -17,7 +17,7 @@ import { MatSelectModule } from '@angular/material/select'
 import { DetailDialogData } from '../detail.dialog.data'
 
 @Component({
-  selector: 'app-add-dialog',
+  selector: 'app-detail-add-dialog',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatInputModule, MatFormFieldModule, MatSelectModule, FormsModule],
   templateUrl: './add-dialog.component.html',

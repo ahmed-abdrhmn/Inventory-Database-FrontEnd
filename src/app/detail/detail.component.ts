@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DetailService } from '../services/detail.service';
+import { HeaderService } from '../services/header.service';
+import { ItemService } from '../services/item.service';
+import { PackageService } from '../services/package.service';
 import { InventoryInDetail } from '../types/types';
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button'
@@ -27,7 +30,13 @@ export class DetailComponent implements OnInit{
 
   public buttonDisable: boolean = false; //controls disabling of the all buttons
 
-  constructor(public service: DetailService, public dialog: MatDialog){
+  constructor(
+    public service: DetailService,
+    public headerservice: HeaderService,
+    public itemservice: ItemService,
+    public packageservice: PackageService,
+    public dialog: MatDialog
+  ){
       this.items = [];
       this.service = service;
   }
@@ -60,9 +69,9 @@ export class DetailComponent implements OnInit{
     
     const dData: DetailDialogData = { //dialog data
       lists: {
-        headerIds: [1,2],
-        itemIds: [1,2,3],
-        packageIds: [1,2,3]
+        headerIds: (await this.headerservice.getList()).map(x => x.inventoryInHeaderId),
+        itemIds: (await this.itemservice.getList()).map(x => x.itemId),
+        packageIds: (await this.packageservice.getList()).map(x => x.packageId)
       }
     }
 
@@ -100,9 +109,9 @@ export class DetailComponent implements OnInit{
     
     const dData: DetailDialogData = { //dialog data
       lists: {
-        headerIds: [1,2],
-        itemIds: [1,2,3],
-        packageIds: [1,2,3]
+        headerIds: (await this.headerservice.getList()).map(x => x.inventoryInHeaderId),
+        itemIds: (await this.itemservice.getList()).map(x => x.itemId),
+        packageIds: (await this.packageservice.getList()).map(x => x.packageId)
       },
       form: itemCopy
     }

@@ -14,22 +14,22 @@ import {  MatInputModule } from '@angular/material/input'
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms'
 import { MatSelectModule } from '@angular/material/select'
-import { DetailDialogData } from '../detail.dialog.data';
+import { PackageDialogData } from '../package.dialog.data'
 
 @Component({
-  selector: 'app-detail-upd-dialog',
+  selector: 'app-package-upd-dialog',
   standalone: true,
   imports: [CommonModule, MatButtonModule, MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatInputModule, MatFormFieldModule, MatSelectModule, FormsModule],
   templateUrl: './upd-dialog.component.html',
   styleUrl: './upd-dialog.component.css'
 })
 export class UpdateDialogComponent {
-  public data!: DetailDialogData;
+  public data!: PackageDialogData;
   
   constructor(
     public dialogRef: MatDialogRef<UpdateDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) data: DetailDialogData
+    @Inject(MAT_DIALOG_DATA) data: PackageDialogData
   ){
-      this.data = data; //here I don't need to make any changes to the paramter as passed in by the main component
+      this.data = data
    }
 }

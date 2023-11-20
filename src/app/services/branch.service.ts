@@ -1,32 +1,27 @@
-import { InventoryInHeader } from "../types/types";
+import { Branch } from "../types/types";
 
-abstract class HeaderService {
-    abstract getList(): Promise<InventoryInHeader[]>;
+abstract class BranchService {
+    abstract getList(): Promise<Branch[]>;
     abstract deleteItem(id: number): Promise<void>
     abstract addItem(item: any): Promise<void>
     abstract updateItem(id: number, item: any): Promise<void>
 }
 
-class ServerHeaderService extends HeaderService{
-    async getList() : Promise<InventoryInHeader[]> {
-        let resp = await fetch('http://localhost:5230/api/header');
+class ServerBranchService extends BranchService{
+    async getList() : Promise<Branch[]> {
+        let resp = await fetch('http://localhost:5230/api/branch');
         
         if (!resp.ok){
             throw new Error('Error from server, Please try again');
         };
 
         let body = await resp.json();
-
-        //convert the date fields to actual dates BECAUSE STUPID JSON DOES NOT HAVE A DATE DATATYPE!!!!
-        for (let i of body){
-            i.docDate = new Date(i.docDate);
-        }
         
         return body;
     }
 
     async deleteItem(id: number): Promise<void>{
-        let resp = await fetch('http://localhost:5230/api/header/' + id, {method: 'DELETE'});
+        let resp = await fetch('http://localhost:5230/api/branch/' + id, {method: 'DELETE'});
         
         if (!resp.ok){
             throw new Error('Error from server, Please try again');
@@ -34,7 +29,7 @@ class ServerHeaderService extends HeaderService{
     }
 
     async addItem(item: any): Promise<void> {
-        let resp = await fetch('http://localhost:5230/api/header', {
+        let resp = await fetch('http://localhost:5230/api/branch', {
             method: 'POST', 
             body: JSON.stringify(item),
             headers: new Headers({'Content-Type':'application/json'})
@@ -46,7 +41,7 @@ class ServerHeaderService extends HeaderService{
     }
 
     async updateItem(id: number, item: any): Promise<void> {
-        let resp = await fetch('http://localhost:5230/api/header/' + id, {
+        let resp = await fetch('http://localhost:5230/api/branch/' + id, {
             method: 'PUT', 
             body: JSON.stringify(item),
             headers: new Headers({'Content-Type':'application/json'})
@@ -79,4 +74,4 @@ class ServerHeaderService extends HeaderService{
 //     }
 // }
 
-export { HeaderService, ServerHeaderService};
+export {BranchService, ServerBranchService};

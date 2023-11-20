@@ -12,14 +12,14 @@
             <p><b>Remarks:</b> {{i.remarks}}</p>
     </mat-card-content>
     <mat-card-actions class="action-region">
-        <button mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button>
-        <button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+        <button mat-mini-fab color="primary" [disabled]="buttonDisable" (click)="openUpdateDialog(i.inventoryInHeaderId)"><mat-icon>edit</mat-icon></button>
+        <button mat-mini-fab color="warn" [disabled]="buttonDisable" (click)="openDelDialog(i.inventoryInHeaderId)"><mat-icon>delete</mat-icon></button>
     </mat-card-actions>
 </mat-card>
 <ng-template #elseBlock>
     <p>No items 😢</p>
 </ng-template>
 
-<button mat-mini-fab color="accent" class="add-button">
+<button mat-mini-fab color="accent" class="add-button" [disabled]="buttonDisable" (click)="openAddDialog()">
     <mat-icon>add</mat-icon>
 </button>

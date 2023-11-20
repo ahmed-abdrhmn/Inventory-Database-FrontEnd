@@ -7,13 +7,19 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatTabsModule} from '@angular/material/tabs';
 
 import { DetailService, ServerDetailService } from './services/detail.service';
-import { HeaderService, StaticHeaderService } from './services/header.service';
+import { HeaderService, ServerHeaderService } from './services/header.service';
+import { PackageService, ServerPackageService } from './services/package.service';
+import { BranchService, ServerBranchService } from './services/branch.service';
+import { ItemService, ServerItemService } from './services/item.service';
 
 //I will register my services here so I have have a single instance in the whole app
-
+//this is where we configure the dependency injection
 const services = [
   {provide: DetailService, useClass: ServerDetailService},
-  {provide: HeaderService, useClass: StaticHeaderService}
+  {provide: HeaderService, useClass: ServerHeaderService},
+  {provide: PackageService, useClass: ServerPackageService},
+  {provide: BranchService, useClass: ServerBranchService},
+  {provide: ItemService, useClass: ServerItemService}
 ]
 
 
