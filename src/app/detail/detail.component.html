@@ -23,7 +23,7 @@
         <p><b>Package:</b></p>
         <div>
             <p> <b>PackageId:</b> {{i.package.packageId}}</p>
-            <p> <b>Name:</b> {{i.package.packageId}}</p>
+            <p> <b>Name:</b> {{i.package.name}}</p>
         </div>
         <p><b>BatchNumber:</b> {{i.batchNumber}}</p>
         <p><b>SerialNumber:</b> {{i.serialNumber}}</p>
@@ -33,14 +33,14 @@
         <p><b>TotalValue:</b> {{i.totalValue}}</p>
     </mat-card-content>
     <mat-card-actions class="action-region">
-        <button mat-mini-fab color="primary"><mat-icon>edit</mat-icon></button>
-        <button mat-mini-fab color="warn"><mat-icon>delete</mat-icon></button>
+        <button mat-mini-fab color="primary" (click)="openUpdateDialog(i.inventoryInDetailId)" [disabled]="buttonDisable"><mat-icon>edit</mat-icon></button>
+        <button mat-mini-fab color="warn" (click)="openDelDialog(i.inventoryInDetailId)" [disabled]="buttonDisable"><mat-icon>delete</mat-icon></button>
     </mat-card-actions>
 </mat-card>
 <ng-template #elseBlock>
     <p>No items 😢</p>
 </ng-template>
 
-<button mat-mini-fab color="accent" class="add-button">
+<button mat-mini-fab color="accent" class="add-button" (click)="openAddDialog()" [disabled]="buttonDisable">
     <mat-icon>add</mat-icon>
 </button>

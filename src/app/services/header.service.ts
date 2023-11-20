@@ -1,6 +1,10 @@
 import { InventoryInHeader } from "../types/types";
 
-class HeaderService{
+abstract class HeaderService {
+    abstract getList(): Promise<InventoryInHeader[]>
+}
+
+class ServerHeaderService extends HeaderService{
     async getList() : Promise<InventoryInHeader[]> {
         let resp = await fetch('http://localhost:5230/api/header');
         if (!(resp.status === 200)){
@@ -13,7 +17,8 @@ class HeaderService{
     }
 }
 
-class StaticHeaderService{
+
+class StaticHeaderService extends HeaderService{
     async getList() : Promise<InventoryInHeader[]> {
 
         return Array(10).fill(
@@ -32,4 +37,4 @@ class StaticHeaderService{
     }
 }
 
-export {StaticHeaderService, InventoryInHeader};
+export {StaticHeaderService, HeaderService, ServerHeaderService};

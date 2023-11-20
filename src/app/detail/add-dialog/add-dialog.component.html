@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>Add Dialog</h1>
+<div mat-dialog-content>
+    <p>What is the information in the new document?</p>
+    <mat-form-field>
+        <mat-label>InventoryInHeaderId</mat-label>
+        <mat-select [(ngModel)]="data.form!.inventoryInHeaderId">
+            <mat-option *ngFor="let i of data.lists.headerIds" [value]="i">
+                {{i}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Serial</mat-label>
+        <input matInput [(ngModel)]="data.form!.serial" type="number" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>ItemId</mat-label>
+        <mat-select [(ngModel)]="data.form!.itemId">
+            <mat-option *ngFor="let i of data.lists.itemIds" [value]="i">
+                {{i}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>PackageId</mat-label>
+        <mat-select [(ngModel)]="data.form!.packageId">
+            <mat-option *ngFor="let i of data.lists.packageIds" [value]="i">
+                {{i}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Batch Number</mat-label>
+        <input matInput [(ngModel)]="data.form!.batchNumber" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Serial Number</mat-label>
+        <input matInput [(ngModel)]="data.form!.serialNumber" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Expire Date</mat-label>
+        <input matInput [(ngModel)]="data.form!.expireDate" type="date" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Quantity</mat-label>
+        <input matInput [(ngModel)]="data.form!.quantity" type="number" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>Consumer Price</mat-label>
+        <input matInput [(ngModel)]="data.form!.consumerPrice" type="number" required>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">NO</button>
+    <button mat-button [mat-dialog-close]="data">YES</button>
+</div>
